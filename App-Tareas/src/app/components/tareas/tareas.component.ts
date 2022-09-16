@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Tarea } from 'src/app/models/tarea';
 
 @Component({
   selector: 'app-tareas',
@@ -6,10 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tareas.component.css']
 })
 export class TareasComponent implements OnInit {
+  listaTareas:Tarea []=[];
+  nombreTarea:string="";
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-}
+  agregarTarea(){
+    const tarea:Tarea = {
+      nombre:this.nombreTarea,
+      estado:false
+    } 
+    this.listaTareas.push(tarea);
+    this.nombreTarea="";
+  }
+
+  }
+
+
